@@ -1,5 +1,8 @@
+import { useContext } from 'react';
 import {Link, NavLink} from 'react-router-dom'
+import UserContext from '../../context/UserContext';
 export default function Header() {
+    const {user} = useContext(UserContext);
     return (
         <header className="shadow sticky z-50 top-0">
             <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5">
@@ -11,6 +14,7 @@ export default function Header() {
                             alt="Logo"
                         />
                     </Link>
+                    <h1>{user}</h1>
                     <div className="flex items-center lg:order-2">
                         <Link
                             to="#"

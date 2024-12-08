@@ -1,4 +1,8 @@
+import { useContext } from "react";
+import UserContext from "../../context/UserContext";
+
 export default function Contact() {
+    const {user, setUser} = useContext(UserContext);
     return (
         <div className="relative flex items-top justify-center min-h-[700px] bg-white sm:items-center sm:pt-0">
             <div className="max-w-6xl mx-auto sm:px-6 lg:px-8">
@@ -96,6 +100,7 @@ export default function Contact() {
                                     id="name"
                                     placeholder="Full Name"
                                     className="w-100 mt-2 py-3 px-3 rounded-lg bg-white border border-gray-400 text-gray-800 font-semibold focus:border-orange-500 focus:outline-none"
+                                    onInput={(e)=>{setUser(e.target.value)}}
                                 />
                             </div>
 
@@ -131,6 +136,7 @@ export default function Contact() {
                             >
                                 Submit
                             </button>
+                            <h1>{user}</h1>
                         </form>
                     </div>
                 </div>
